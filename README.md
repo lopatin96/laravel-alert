@@ -1,15 +1,15 @@
 # Usage
 ```html
-<x-laravel-breadcrumbs::breadcrumbs
-    title="{{ __('Go dashboard') }}"
-    route="dashboard"
->
-    {{ __('Edit') }}: <b>#{{ $link->hash }}</b>
-</x-laravel-breadcrumbs::breadcrumbs>
+<x-laravel-alert::alert />
 ```
 
 # Publishing
+### Localization
+```php
+php artisan vendor:publish --tag="laravel-alert-lang"
+```
+
 ### Views
 ```php
-php artisan vendor:publish --tag="laravel-components-views"
+php artisan vendor:publish --tag="laravel-alert-views"
 ```

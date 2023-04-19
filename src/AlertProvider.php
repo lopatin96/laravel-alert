@@ -3,7 +3,6 @@
 namespace Atin\LaravelAlert;
 
 use Illuminate\Support\ServiceProvider;
-use Atin\LaravelBreadcrumbs\View\Components\Breadcrumbs;
 
 class AlertProvider extends ServiceProvider
 {
