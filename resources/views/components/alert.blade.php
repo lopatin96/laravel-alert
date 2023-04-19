@@ -1,6 +1,6 @@
 @props(['style' => session('flash.bannerStyle', 'success'), 'message' => session('flash.banner')])
 
-<div x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => __('laravel-alert::alert.' . $message)]) }}"
+<div x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => ($message ? __('laravel-alert::alert.' . $message) : null)]) }}"
      :class="{ 'bg-indigo-500': style == 'success', 'bg-red-500': style == 'danger', 'bg-gray-500': style != 'success' && style != 'danger' }"
      style="display: none;"
      x-show="show && message"
