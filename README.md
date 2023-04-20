@@ -8,6 +8,7 @@ Add alert component to *resources/views/layouts/app.blade.php*:
 ```html
 <body class="font-sans antialiased">
     @include('laravel-subscription::subscription.info')
+    
     <div class="min-h-screen bg-gray-100">
         @livewire('navigation-menu')
         <x-banner />
