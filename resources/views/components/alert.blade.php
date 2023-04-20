@@ -1,16 +1,17 @@
-@props(['style' => session('flash.bannerStyle', 'success'), 'message' => session('flash.banner')])
+@props(['style' => session('flash.bannerStyle', 'success'), 'message' => session('flash.banner'), 'params' => session('flash.bannerParams')])
 
-<div x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => ($message ? __('laravel-alert::alert.' . $message) : null)]) }}"
-     :class="{ 'bg-indigo-500': style == 'success', 'bg-red-500': style == 'danger', 'bg-gray-500': style != 'success' && style != 'danger' }"
-     style="display: none;"
-     x-show="show && message"
-     x-init="
-                document.addEventListener('banner-message', event => {
-                    style = event.detail.style;
-                    message = event.detail.message;
-                    show = true;
-                });
-            ">
+<div
+    x-data="{{ json_encode(['show' => true, 'style' => $style, 'message' => ($message ? __('laravel-alert::alert.' . $message, $params ?? []) : null)]) }}"
+    :class="{ 'bg-indigo-500': style == 'success', 'bg-red-500': style == 'danger', 'bg-gray-500': style != 'success' && style != 'danger' }"
+    style="display: none;"
+    x-show="show && message"
+    x-init="
+        document.addEventListener('banner-message', event => {
+            style = event.detail.style;
+            message = event.detail.message;
+            show = true;
+        });
+    ">
     <div class="max-w-screen-xl mx-auto py-2 px-3 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between flex-wrap">
             <div class="w-0 flex-1 flex items-center min-w-0">
@@ -26,7 +27,7 @@
                     </svg>
                 </span>
 
-                <p class="ml-3 font-medium text-sm text-white truncate" x-text="message"></p>
+                <p class="ml-3 font-medium text-sm text-white truncate" x-html="message"></p>
             </div>
 
             <div class="shrink-0 sm:ml-3">
