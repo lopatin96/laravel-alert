@@ -17,6 +17,12 @@ Add alert component to app:
 Display message in alert:
 ```php
 session(['flash.banner' => 'The data has been saved successfully.']);
+// or
+return redirect('dashboard')->with([
+    'flash.banner' => 'Link with hash #:hash was deleted successfully.',
+    'flash.bannerStyle' => 'success',
+    'flash.bannerParams' => ['hash' => $link->hash],
+]);
 ```
 
 Set danger style to the banner:
