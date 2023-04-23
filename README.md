@@ -4,10 +4,11 @@ Include alert component in *resources/views/components/banner*:
 <x-laravel-alert::alert />
 ```
 
-Add alert component to app:
+Add alert component to *resources/views/layouts/app.blade.php*:
 ```html
 <body class="font-sans antialiased">
-    @include('laravel-subscription::subscription.info', ['title' => __('laravel-social-auth::social-auth.Sign in with :social', ['social' => 'Google'])])
+    @include('laravel-subscription::subscription.info')
+    
     <div class="min-h-screen bg-gray-100">
         @livewire('navigation-menu')
         <x-banner />
