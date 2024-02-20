@@ -1,10 +1,10 @@
 # Usage
-Include alert component in *resources/views/components/banner*:
+Include alert component in `resources/views/components/banner`:
 ```html
 <x-laravel-alert::alert />
 ```
 
-Add alert component to *resources/views/layouts/app.blade.php*:
+Add alert component to `resources/views/layouts/app.blade.php`:
 ```html
 <body class="font-sans antialiased">
     @include('laravel-subscription::subscription.info')
@@ -17,12 +17,11 @@ Add alert component to *resources/views/layouts/app.blade.php*:
 
 Display message in alert:
 ```php
-session(['flash.banner' => 'The data has been saved successfully.']);
+session(['flash.banner' => __('alerts.test')]);
 // or
 return redirect('dashboard')->with([
-    'flash.banner' => 'Link with hash #:hash was deleted successfully.',
+    'flash.banner' => __('alerts.test'),
     'flash.bannerStyle' => 'success',
-    'flash.bannerParams' => ['hash' => $link->hash],
 ]);
 ```
 
@@ -34,11 +33,6 @@ session(['flash.bannerStyle' => 'success']);
 ```
 
 # Publishing
-### Localization
-```php
-php artisan vendor:publish --tag="laravel-alert-lang"
-```
-
 ### Views
 ```php
 php artisan vendor:publish --tag="laravel-alert-views"
